@@ -37,7 +37,7 @@ public class ConnectionTest {
      * Test.
      */
     @Test
-    public void testConnectionObservers() {
+    public void testObserverPattern() {
         final String expectedResultOpened = "Opened";
         final String expectedResultClosed = "Closed";
         myConnection.addObservers(myConnectionSql);

@@ -13,7 +13,7 @@ public class SingletonTest {
      * Test.
      */
     @Test
-    public void testSingleton() {
+    public void testSingletonPattern() {
         Singleton mySingletonOne = Singleton.getSingleton();
         Singleton mySingletonTwo = Singleton.getSingleton();
         assertNotNull(mySingletonOne);
