@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Test.
  */
-public class StrategyStrategyManagerTest {
+public class StrategyStrategyProtocolManagerTest {
 
     private StrategyManager myStrategyManager;
 
