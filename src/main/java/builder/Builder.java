@@ -3,39 +3,82 @@ package builder;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Builder {
+/**
+ * Class.
+ */
+class Builder {
 
     private ProtocolManager manager;
     private String endpoint;
     private List<String> listActions;
 
-    Builder(final ProtocolManager manager, final String endpoint) {
-        this.manager = manager;
-        this.endpoint = endpoint;
+    /**
+     * Constructor.
+     */
+    Builder() {
         listActions = new ArrayList<>();
     }
 
-    public void get() {
+    /**
+     * @param manager  Response or Request.
+     * @param endpoint End point.
+     * @return Builder.
+     */
+    Builder protocolBuilder(final ProtocolManager manager, final String endpoint) {
+        this.manager = manager;
+        this.endpoint = endpoint;
+        return this;
+    }
+
+    /**
+     *
+     * @return Builder.
+     */
+    Builder get() {
         listActions.add("GET");
+        return this;
     }
 
-    public void post() {
+    /**
+     *
+     * @return Builder.
+     */
+    Builder post() {
         listActions.add("POST");
+        return this;
     }
 
-    public void put() {
+    /**
+     *
+     * @return Builder.
+     */
+    Builder put() {
         listActions.add("PUT");
+        return this;
     }
 
-    public void delete() {
+    /**
+     *
+     * @return Builder.
+     */
+    Builder delete() {
         listActions.add("DELETE");
+        return this;
     }
 
-    public void setBody() {
+    /**
+     *
+     * @return Builder.
+     */
+    Builder setBody() {
         listActions.add("BODY");
+        return this;
     }
 
-    public ProtocolManager getProtocol() {
+    /**
+     * @return Request or Response.
+     */
+    ProtocolManager getProtocol() {
         manager.perform(this.listActions, this.endpoint);
         return manager;
     }

@@ -8,9 +8,14 @@ import java.util.List;
 public interface ProtocolManager {
 
     /**
-     *
-     * @param listActions
-     * @param endpoint
+     * @param listActions List of actions.
+     * @param endpoint    End point.
+     * @return Protocol Manager.
      */
-    void perform(List<String> listActions, String endpoint);
+    ProtocolManager perform(List<String> listActions, String endpoint);
+
+    /**
+     * @return result.
+     */
+    String getResult();
 }
