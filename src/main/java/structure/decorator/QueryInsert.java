@@ -1,17 +1,18 @@
-package decorator;
+package structure.decorator;
 
 /**
  * Class.
  */
-public class QueryDelete extends QueryDecorator {
+public class QueryInsert extends QueryDecorator {
 
     private QueryBase myQueryBase;
 
     /**
+     *
      * @param queryBase queryBase.
      * @param tableName tableName.
      */
-    QueryDelete(final QueryBase queryBase, final String tableName) {
+     QueryInsert(final QueryBase queryBase, final String tableName) {
         super.setTable(tableName);
         this.myQueryBase = queryBase;
     }
@@ -22,7 +23,7 @@ public class QueryDelete extends QueryDecorator {
     @Override
     public String getQuery() {
         return myQueryBase.getQuery().equals("")
-                ? "DELETE " + this.getTable()
-                : myQueryBase.getQuery() + ", " + "DELETE " + this.getTable();
+                ? "INSERT INTO " + this.getTable()
+                : myQueryBase.getQuery() + ", " + "INSERT INTO " + this.getTable();
     }
 }

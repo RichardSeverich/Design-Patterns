@@ -1,17 +1,17 @@
-package decorator;
+package structure.decorator;
 
 /**
  * Class.
  */
-public class QuerySelect extends QueryDecorator {
+public class QueryUpdate extends QueryDecorator {
 
     private QueryBase myQueryBase;
 
     /**
-     * @param queryBase QueryBase.
+     * @param queryBase queryBase.
      * @param tableName tableName.
      */
-    QuerySelect(final QueryBase queryBase, final String tableName) {
+    QueryUpdate(final QueryBase queryBase, final String tableName) {
         super.setTable(tableName);
         this.myQueryBase = queryBase;
     }
@@ -22,7 +22,7 @@ public class QuerySelect extends QueryDecorator {
     @Override
     public String getQuery() {
         return myQueryBase.getQuery().equals("")
-                ? "SELECT * FROM " + this.getTable()
-                : myQueryBase.getQuery() + ", " + "SELECT * FROM " + this.getTable();
+                ? "UPDATE " + this.getTable()
+                : myQueryBase.getQuery() + ", " + "UPDATE " + this.getTable();
     }
 }
